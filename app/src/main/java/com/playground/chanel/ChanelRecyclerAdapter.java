@@ -1,6 +1,7 @@
 package com.playground.chanel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.playground.R;
+import com.playground.instant.MovieDetailsActivity;
 
 import java.util.ArrayList;
 
@@ -30,13 +32,14 @@ public class ChanelRecyclerAdapter extends ChanelRecyclerViewAdapter<ChanelRecyc
 
     @Override
     public ChanelHolder onCreateChanelViewHolder(ViewGroup parent, int viewType) {
-        return new ChanelHolder(LayoutInflater.from(mContext).inflate(R.layout.chanel_recycler_item, parent, false));
+        return new ChanelHolder(LayoutInflater.from(mContext).inflate(R.layout.chanel_recycler_item, parent, false),mContext);
     }
 
     @Override
     public void onBindChanelViewHolder(ChanelHolder holder, int position) {
         ChanelHolder chanelHolder = (ChanelHolder) holder;
-        chanelHolder.layout.setBackgroundColor(Color.parseColor(colorArray[position%colorArray.length]));
+        chanelHolder.layout.setBackgroundColor(Color.parseColor(colorArray[position % colorArray.length]));
+        chanelHolder.layout.setTag(colorArray[position % colorArray.length]);
         chanelHolder.tv_title.setText("Item " + position);
     }
 
@@ -47,24 +50,34 @@ public class ChanelRecyclerAdapter extends ChanelRecyclerViewAdapter<ChanelRecyc
 
     @Override
     public void onChanelItemResize(ChanelHolder holder, int position, float offset) {
-        holder.tv_title.setAlpha(offset/100f);
+        holder.tv_title.setAlpha(offset / 100f);
     }
 
     @Override
     public void onDefaultItemResize(ChanelHolder holder, int position, float offset) {
-        holder.tv_title.setAlpha(offset/100f);
+        holder.tv_title.setAlpha(offset / 100f);
     }
-
 
 
     public static class ChanelHolder extends RecyclerView.ViewHolder {
         private FrameLayout layout;
         private TextView tv_title;
 
-        public ChanelHolder(View itemView) {
+        public ChanelHolder(View itemView, final Context context) {
             super(itemView);
             layout = (FrameLayout) itemView.findViewById(R.id.parent_layout);
             tv_title = (TextView) itemView.findViewById(R.id.tv_title);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Intent intent = new Intent(context, MovieDetailsActivity.class);
+
+                    intent.putExtra("position", ChanelHolder.this.getAdapterPosition());
+                    intent.putExtra("color_tag",layout.getTag().toString());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

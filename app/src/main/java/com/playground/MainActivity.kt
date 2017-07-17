@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.widget.Button
 import com.playground.chanel.ChanelActivity
+import com.playground.instant.MoviesListActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,12 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Snackbar", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show()
             startActivity(Intent(this,ChanelActivity::class.java))
+        }
+
+
+        var btn_instant_app= findViewById(R.id.btn_instant_app) as Button;
+        btn_instant_app.setOnClickListener { view ->
+         startActivity(Intent(this,MoviesListActivity::class.java))
         }
     }
 }
