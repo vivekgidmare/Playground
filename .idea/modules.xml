@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PlayGround.iml" filepath="$PROJECT_DIR$/PlayGround.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Playground.iml" filepath="$PROJECT_DIR$/Playground.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-feature/app.iml" filepath="$PROJECT_DIR$/base-feature/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-feature/base-feature.iml" filepath="$PROJECT_DIR$/base-feature/base-feature.iml" />
       <module fileurl="file://$PROJECT_DIR$/instantapp/instantapp.iml" filepath="$PROJECT_DIR$/instantapp/instantapp.iml" />
