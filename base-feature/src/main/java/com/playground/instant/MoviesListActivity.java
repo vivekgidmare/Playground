@@ -1,5 +1,6 @@
 package com.playground.instant;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -48,7 +49,11 @@ public class MoviesListActivity extends AppCompatActivity {
             btn_install_full.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try{
                     InstantApps.showInstallPrompt(MoviesListActivity.this,0,"Install App");
+                    }catch (ActivityNotFoundException e){
+                        e.printStackTrace();
+                    }
                 }
             });
         }else{
