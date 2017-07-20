@@ -88,7 +88,31 @@
 -keep class org.adw.library.widgets.discreteseekbar.DiscreteSeekBar$NumericTransformer
 
 
+#Firebase
+-dontnote com.google.android.gms.internal.zzati
+-dontnote com.google.firebase.messaging.zza
+-dontnote com.google.firebase.messaging.zzc
+
+-dontnote com.google.android.gms.internal.zzbpf
+-dontnote com.google.android.gms.internal.zzbwi
+-dontnote com.google.android.gms.internal.zzblq
+-dontnote com.google.android.gms.internal.zzbwi
 
 
+-keep class com.google.android.gms.internal.zzaue
+-keep class com.google.android.gms.measurement.AppMeasurement$zzb
+-keep class com.google.android.gms.measurement.AppMeasurement$zzc
+-keep class com.google.android.gms.measurement.AppMeasurement$zzd
+-keep class com.google.android.gms.internal.zzaue
+-keep class com.google.firebase.FirebaseApp
+
+-keep class com.google.firebase.database.connection.idl.zzc
+-keep class com.google.android.gms.internal.zzbok
+-keep class com.google.android.gms.internal.zzbop$zza
+-keep class com.google.firebase.database.connection.idl.zzc
+-keep class com.google.firebase.database.connection.idl.zzh
+-keep class com.google.firebase.database.connection.idl.zzl
+-keep class com.google.firebase.database.connection.idl.zzj
+-keep class com.google.firebase.database.connection.idl.zzm
 
 

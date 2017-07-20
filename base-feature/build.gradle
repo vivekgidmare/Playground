@@ -49,13 +49,14 @@ dependencies {
     implementation "com.google.android.gms:play-services-analytics:$play_service_version"
 
     //Firebase
-//    implementation "com.google.firebase:firebase-invites:$play_service_version"
-//    implementation "com.google.firebase:firebase-messaging:$play_service_version"
-//    implementation "com.google.firebase:firebase-config:$play_service_version"
-//    implementation "com.google.firebase:firebase-core:$play_service_version"
-//    implementation "com.google.firebase:firebase-database:$play_service_version"
-//    implementation "com.google.firebase:firebase-storage:$play_service_version"
-//    implementation "com.google.firebase:firebase-auth:$play_service_version"
+    implementation "com.google.firebase:firebase-invites:$play_service_version"
+    implementation "com.google.firebase:firebase-messaging:$play_service_version"
+
+    implementation "com.google.firebase:firebase-config:$play_service_version"
+    implementation "com.google.firebase:firebase-core:$play_service_version"
+    implementation "com.google.firebase:firebase-database:$play_service_version"
+    implementation "com.google.firebase:firebase-storage:$play_service_version"
+    implementation "com.google.firebase:firebase-auth:$play_service_version"
 
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
