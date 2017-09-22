@@ -1,5 +1,6 @@
 package com.playground.instant;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,7 @@ import com.playground.customview.ChanelRecyclerView;
 
 import java.util.ArrayList;
 
-public class MoviesListActivity extends AppCompatActivity {
+public class MoviesListActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class MoviesListActivity extends AppCompatActivity {
         Uri appLinkData = appLinkIntent.getData();
         Log.d("TAG", "MoviesListActivity:onCreate: "+appLinkAction+":"+appLinkData);
 
+        findViewById(R.id.btn_one).setOnClickListener(this);
+        findViewById(R.id.btn_two).setOnClickListener(this);
 
         Button btn_install_full= (Button) findViewById(R.id.btn_install_full);
         if (InstantApps.isInstantApp(this)){
@@ -48,11 +51,27 @@ public class MoviesListActivity extends AppCompatActivity {
             btn_install_full.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try{
                     InstantApps.showInstallPrompt(MoviesListActivity.this,0,"Install App");
+                    }catch (ActivityNotFoundException e){
+                        e.printStackTrace();
+                    }
                 }
             });
         }else{
             btn_install_full.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        int i = view.getId();
+        if (i == R.id.btn_one) {
+            Log.d("TAG", "onClick:#1 ");
+
+        } else if (i == R.id.btn_two) {
+            Log.d("TAG", "onClick:#2 ");
+
         }
     }
 }
