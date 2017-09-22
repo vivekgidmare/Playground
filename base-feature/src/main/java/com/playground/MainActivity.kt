@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.widget.Button
 import com.playground.chanel.ChanelActivity
+import com.playground.constraint.ConstraintActivity
+import com.playground.instant.MovieDetailsActivity
 import com.playground.instant.MoviesListActivity
 
 class MainActivity : AppCompatActivity() {
@@ -18,13 +20,19 @@ class MainActivity : AppCompatActivity() {
         chanelRecycler.setOnClickListener { view ->
             Snackbar.make(view, "Snackbar", Snackbar.LENGTH_SHORT)
                     .setAction("Action", null).show()
-            startActivity(Intent(this,ChanelActivity::class.java))
+            startActivity(Intent(this, ChanelActivity::class.java))
         }
 
 
-        var btn_instant_app= findViewById(R.id.btn_instant_app) as Button;
+        var btn_instant_app = findViewById(R.id.btn_instant_app) as Button;
         btn_instant_app.setOnClickListener { view ->
-         startActivity(Intent(this,MoviesListActivity::class.java))
+            startActivity(Intent(this, MoviesListActivity::class.java))
         }
+
+        var btn_constraint_demo = findViewById(R.id.button_constraint_demo) as Button;
+        btn_constraint_demo.setOnClickListener { view ->
+            startActivity(Intent(this, ConstraintActivity::class.java))
+        }
+
     }
 }
